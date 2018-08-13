@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Dashboard <small> Welcome {{session.username}}</small></h1>
+  <a class="btn btn-success" href="/add_article"> Add Article</a>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>recipe_name</th>
+      <th>ingredients</th>
+      <th>instructions</th>
+      <th>serving_size</th>
+      <th>category</th>
+      <th>notes</th>
+      <th>author</th>
+      <th>date_added</th>
+      <th>date_modified</th>
+    </tr>
+    {% for article in articles %}
+      <tr>
+        <td>{{article.id}}</td>
+        <td>{{article.recipe_name}}</td>
+        <td>{{article.ingredients}}</td>
+        <td>{{article.instructions}}</td>
+        <td>{{article.serving_size}}</td>
+        <td>{{article.category}}</td>
+        <td>{{article.notes}}</td>
+        <td>{{article.author}}</td>
+        <td>{{article.date_added}}</td>
+        <td>{{article.date_modified}}</td>
+
+        <td><a href="edit_article/{{article.id}}" class="btn btn-default pull-right">Edit</a></td>
+        <td>
+          <form action="{{url_for('delete_article', id=article.id)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>{{article.recipe_name}}</h1>
+  <small>
+    Written by {{article.author}} on {{article.date_modified}} Category of {{article.category}}. The Dish is good for {{article.serving_size}}
+  </small>
+  <hr>
+  <div>
+    {{article.ingredients | safe}}
+  </div>
+  <div>
+    {{article.instructions | safe}}
+  </div>
+{% endblock %}

@@ -37,4 +37,19 @@ def Articles():
             'date_modified':'08-13-2018'
         }
     ]
+    
+    user = [
+        {
+            'id': 1,
+            'user_name':'jeff',
+            'email': 'jeff@yahoo.com',
+            'password': 'xyz',
+        },
+        {
+            'id': 1,
+            'user_name':'meet',
+            'email':'meet@gmail.com',
+            'password': 'abc',
+        }
+    ]
     return articles
